@@ -1,0 +1,9 @@
+telethon
+pandas
+numpy
+nltk
+transformers
+torch
+datasets
+matplotlib
+scikit-learn
