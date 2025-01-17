@@ -1,9 +1,6 @@
 telethon
+python-dotenv
 pandas
 numpy
-nltk
-transformers
-torch
-datasets
-matplotlib
-scikit-learn
+requests
+setuptools
