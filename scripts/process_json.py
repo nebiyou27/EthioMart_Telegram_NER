@@ -28,7 +28,6 @@ def load_and_merge_json(json_dir):
 def main():
     print("Loading and merging JSON files...")
     df = load_and_merge_json(json_dir)
-    
     # Save merged data to CSV
     print(f"Saving merged data to {merged_file}...")
     df.to_csv(merged_file, index=False)
