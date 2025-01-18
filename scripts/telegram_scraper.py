@@ -18,21 +18,11 @@ os.makedirs(output_dir, exist_ok=True)
 async def scrape_channel_text_only(client, channel_name, writer):
     """Scrape messages from a Telegram channel."""
     print(f"Scraping messages from {channel_name}...")
-    entity = await client.get_entity(channel_name)
-    channel_title = entity.title  # Extract the channel's title
+    await client.get_entity(channel_name)
 
     async for message in client.iter_messages(channel_name):
         if message.text:  # Only check for text content
-            writer.writerow(
-                writer.writerow([
-    'Channel Title', 
-    'Channel Username', 
-    'ID', 
-    'Message', 
-    'Date'
-])  # Include channel title in the header
-
-            )
+            writer.writerow([channel_name, message.id, message.text, message.date])
 
 
 # Initialize the client
@@ -45,9 +35,7 @@ async def main():
     # Open the CSV file and prepare the writer
     with open('telegram_data.csv', 'w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow(
-            ['Channel Title', 'Channel Username', 'ID', 'Message', 'Date']
-        )  # Include channel title in the header
+        writer.writerow(['Channel Name', 'Message ID', 'Message', 'Date'])
 
         # List of channels to scrape
         channels = [
