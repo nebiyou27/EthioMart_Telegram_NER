@@ -24,7 +24,14 @@ async def scrape_channel_text_only(client, channel_name, writer):
     async for message in client.iter_messages(channel_name):
         if message.text:  # Only check for text content
             writer.writerow(
-                [channel_title, channel_name, message.id, message.text, message.date]
+                writer.writerow([
+    'Channel Title', 
+    'Channel Username', 
+    'ID', 
+    'Message', 
+    'Date'
+])  # Include channel title in the header
+
             )
 
 
