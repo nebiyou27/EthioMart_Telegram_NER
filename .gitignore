@@ -18,8 +18,6 @@ myenv/
 data/raw/
 data/preprocessed/
 
-# Media files (optional, if you don't want to track images and media)
-data/raw/photos/
 
 # Logs
 logs/
